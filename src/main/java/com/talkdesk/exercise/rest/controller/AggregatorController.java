@@ -36,22 +36,4 @@ public class AggregatorController {
         return new ResponseEntity(body.getBody(), HttpStatus.OK);
     }
 
-    /*
-    REMOVE ME AFTER
-    @RequestMapping(value = "/test", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity test() {
-
-        List<String> phoneNumbers = new ArrayList<>();
-        phoneNumbers.add("+1983236248");
-        phoneNumbers.add("+1 7490276403");
-        phoneNumbers.add("001382355A");
-        phoneNumbers.add("+00351917382672");
-        phoneNumbers.add("+44191734022");
-        phoneNumbers.add("+35191734022");
-
-        AggregatorResponseBody body = phoneNumberAggregatorService.aggregatePhoneNumbers(phoneNumbers);
-        return new ResponseEntity(body.getBody(), HttpStatus.OK);
-    }
-     */
-
 }

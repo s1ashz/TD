@@ -44,10 +44,11 @@ public class PhoneNumberAggregatorServiceImpl implements PhoneNumberAggregatorSe
     private Map<String, Prefix> getPrefixAndSectorForPhoneNumberList( List<String> phoneNumbers ) {
         Map<String, Prefix> existingPrefixes = new HashMap<>();
         for ( String phoneNumb : phoneNumbers) {
-            String prefixValue = storedPhoneNumberPrefixes.getPhoneNumberPrefix(phoneNumb);
             ChallengeResponse challengeResponse = phoneNumberSectorService.getPhoneNumberSector(phoneNumb);
 
             if ( challengeResponse != null ) {
+                String prefixValue = storedPhoneNumberPrefixes.getPhoneNumberPrefix(phoneNumb);
+                LOGGER.info("Prefix found for " + phoneNumb + ". Prefix: " + prefixValue);
                 Prefix prefix = getPrefixFromMap(existingPrefixes, prefixValue);
                 prefix.addSector(challengeResponse.getSector());
                 existingPrefixes.put(prefix.getPrefixValue(), prefix);

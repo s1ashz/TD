@@ -20,9 +20,15 @@ public class PhoneNumberValidator {
         return checkPhoneHasNoLettersAndReplaceUselessCharacters(phoneNumbers);
     }
 
-    //This function is used to remove "+", "00" in the beginning of the phone number and removes invalid phone numbers (phone numbers with letters)
+    //This function is used to:
+    // check null
+    // removes invalid phone numbers (phone numbers with letters)
+    // remove "+",
+    // remove spaces
+    // remove "00" in the beginning of the phone number
     private List<String> checkPhoneHasNoLettersAndReplaceUselessCharacters(List<String> phoneNumbers) {
         return phoneNumbers.stream()
+                .filter( s -> null != s )
                 .filter(s -> !Pattern.matches(".*[a-zA-Z].*", s)  )
                 .map( s -> s.replaceAll("\\+", "")
                         .replaceAll(" ", "")

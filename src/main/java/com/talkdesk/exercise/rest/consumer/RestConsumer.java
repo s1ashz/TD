@@ -22,6 +22,7 @@ public class RestConsumer {
         try {
             response = (ResponseEntity<T>) restTemplate.getForEntity(url, String.class);
         } catch ( HttpClientErrorException e ) {
+            //This Phone Number will be ignored
             e.printStackTrace();
         }
         return response;
